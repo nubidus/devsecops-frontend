@@ -1,0 +1,12 @@
+version: '2.3'
+
+services:
+  myapp-frontend:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes: # Volume binding
+     - './:/usr/src/app'
+    ports:
+     - "4200:80" # specify port forewarding
+    restart: always

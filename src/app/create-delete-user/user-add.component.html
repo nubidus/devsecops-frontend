@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User List</title>
+  <link rel="stylesheet" href="user-add.component.css">
+</head>
+<body>
+  <h2>User List</h2>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let user of users">
+    <td>{{ user.username }}</td>
+    <td>{{ user.email }}</td>
+    <td>
+      <button (click)="deleteUser(user.id)" class="delete-btn">Kullanıcı Sil</button>
+    </td>
+  </tr>
+</table>
+
+  <h2>Add User</h2>
+  <form (submit)="addUser()" class="add-user-form">
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" id="username" [(ngModel)]="newUser.username" name="username" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" [(ngModel)]="newUser.email" name="email" required>
+    </div>
+    <button type="submit" class="submit-btn">Kullanıcı Ekle</button>
+  </form>
+</body>
+</html>
